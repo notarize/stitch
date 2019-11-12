@@ -1,0 +1,10 @@
+npm-debug.log
+yarn-error.log
+node_modules
+packages/*/lib
+
+.DS_Store
+*.env
+*.swp
+*.swo
+.idea/

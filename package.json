@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "name": "stich",
+  "author": "Notarize Inc.",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "volta": {
+    "node": "12.13.0",
+    "yarn": "1.19.1"
+  },
+  "scripts": {
+    "build": "lerna exec -- 'rm -rf lib && rollup -c'",
+    "format": "prettier --write '**/*.{ts,js,json}'",
+    "test": "jest",
+    "watch": "lerna exec -- rollup -cw"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "jest": "^24.9.0",
+    "lerna": "^3.18.4",
+    "prettier": "^1.19.1",
+    "rollup": "^1.27.2",
+    "rollup-plugin-typescript2": "^0.25.2",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.7.2"
+  }
+}
