@@ -1,0 +1,20 @@
+{
+  "name": "@notarize/stitch-core",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/notarize/stitch.git"
+  },
+  "bugs": {
+    "url": "https://github.com/notarize/stitch/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib"
+  ]
+}
