@@ -3,7 +3,6 @@
     "baseUrl": ".",
     "declaration": true,
     "esModuleInterop": true,
-    "incremental": true,
     "newLine": "LF",
     "moduleResolution": "node",
     "paths": { "@notarize/stitch-*": ["packages/*"] },
