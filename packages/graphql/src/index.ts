@@ -102,6 +102,7 @@ export function makePatternStamp({ fetch }: StampParams) {
             variables: patternParams.makeVariables?.({ deps }),
           };
           const { data, errors } = await fetch<R>({
+            deps,
             body,
           });
           if (errors?.length) {
