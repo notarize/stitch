@@ -8,3 +8,4 @@ packages/*/lib
 *.swp
 *.swo
 .idea/
+*.tsbuildinfo

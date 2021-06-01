@@ -4,25 +4,23 @@ import { knitPattern } from "@notarize/stitch-core";
 import { makePatternStamp } from "..";
 
 describe("GraphQL Pattern Knit", () => {
-  const doRequest = jest.fn(
-    ({ body: { query } }: { body: any }): Promise<any> => {
-      const isUserMutation = query.startsWith("mutation CreateUser");
-      const data =
-        isUserMutation && query.includes("twitter")
-          ? {
-              createUser: {
-                id: "user123",
-                firstName: "Linus",
-                last: "Torvalds",
-                social: { twitterHandle: "handleName", githubUrl: "https://github.com" },
-              },
-            }
-          : isUserMutation
-          ? { createUser: { id: "user123", social: { githubUrl: "https://github.com" } } }
-          : { uploadDoc: { id: "doc123" } };
-      return Promise.resolve({ data });
-    },
-  );
+  const doRequest = jest.fn(({ body: { query } }: { body: any }): Promise<any> => {
+    const isUserMutation = query.startsWith("mutation CreateUser");
+    const data =
+      isUserMutation && query.includes("twitter")
+        ? {
+            createUser: {
+              id: "user123",
+              firstName: "Linus",
+              last: "Torvalds",
+              social: { twitterHandle: "handleName", githubUrl: "https://github.com" },
+            },
+          }
+        : isUserMutation
+        ? { createUser: { id: "user123", social: { githubUrl: "https://github.com" } } }
+        : { uploadDoc: { id: "doc123" } };
+    return Promise.resolve({ data });
+  });
 
   const userMutation = gql`
     mutation CreateUser {

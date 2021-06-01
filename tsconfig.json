@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "declaration": true,
     "esModuleInterop": true,
     "incremental": true,
     "newLine": "LF",
     "moduleResolution": "node",
+    "paths": { "@notarize/stitch-*": ["packages/*"] },
     "strict": true,
     "target": "ES2016"
   },
-  "exclude": ["**/node_modules/**/*", "**/__tests__/**/*"],
-  "references": [{ "path": "packages/core" }, { "path": "packages/graphql" }]
+  "exclude": ["**/node_modules/**/*", "**/__tests__/**/*"]
 }
