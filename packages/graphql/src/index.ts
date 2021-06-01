@@ -16,7 +16,7 @@ type MakeParams<D extends StrictPatternLookup<D>> = {
   document: DocumentNode;
 };
 type StampParams = {
-  fetch: <R>(params: { body: Body }) => Promise<{ errors?: unknown[]; data?: R }>;
+  fetch: <R, D>(params: { body: Body; deps: D }) => Promise<{ errors?: unknown[]; data?: R }>;
 };
 
 function getFieldId({ name, alias }: FieldNode): string {
@@ -101,9 +101,7 @@ export function makePatternStamp({ fetch }: StampParams) {
             query: makeGraphQLString(patternParams.document, depsWith as With[]),
             variables: patternParams.makeVariables?.({ deps }),
           };
-          const { data, errors } = await fetch<R>({
-            body,
-          });
+          const { data, errors } = await fetch<R, UnwrapDepPatternResults<D>>({ deps, body });
           if (errors?.length) {
             throw new Error(JSON.stringify(errors));
           }

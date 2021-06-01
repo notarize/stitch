@@ -65,6 +65,7 @@ describe("GraphQL Pattern Knit", () => {
       body: {
         query: expect.stringMatching(/^mutation CreateUser/),
       },
+      deps: {},
     });
   });
 
@@ -126,6 +127,9 @@ describe("GraphQL Pattern Knit", () => {
           title: "Linus's document",
           owner: "user123",
         },
+      },
+      deps: {
+        user: { createUser: expect.any(Object) },
       },
     });
   });
